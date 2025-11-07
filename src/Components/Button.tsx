@@ -8,6 +8,7 @@ interface ButtonProps {
   disabled?: boolean;
   children?: React.ReactNode;
   classNames?: string;
+  rest?: Record<string, unknown>;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   classNames,
   ...rest
 }) => {
-  const baseStyles = "px-4 py-2 rounded font-medium focus:outline-none";
+  const baseStyles = "px-4 py-2 rounded font-medium focus:outline-none cursor-pointer";
   const variantStyles = {
     primary: "bg-blue-500 text-white hover:bg-blue-600",
     secondary: "bg-gray-500 text-white hover:bg-gray-600",
@@ -33,7 +34,8 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseStyles} ${classNames} ${variantStyles[variant]} ${
+      {...rest}
+      className={` ${baseStyles} ${classNames} ${variantStyles[variant]} ${
         disabled ? disabledStyles : ""
       }`}
     >

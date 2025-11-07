@@ -1,12 +1,14 @@
 import React from 'react'
 import Button from './Components/Button';
+import Panel from './Components/panel';
 
 function App() {
 
 
   return (
     <div>
-      <Button>Click Me</Button>
+      
+      
     </div>
   );
 }
