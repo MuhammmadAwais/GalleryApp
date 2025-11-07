@@ -1,5 +1,8 @@
 {
-    "users": [],
+    "users": [{
+        "id": 1,
+        "name": "Faiza Khalid"
+        }],
     "albums": [],
     "photos": []
 
