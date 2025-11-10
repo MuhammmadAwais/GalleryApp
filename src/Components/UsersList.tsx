@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../store/Thunks/fetchUsers";
-import type { RootState, AppDispatch } from "../store"; 
+import type { RootState, AppDispatch } from "../store";
+import Loader from "./ui/Loader";
+import ErrorCard from "./ui/ErrorCard";
+import ErrorMsg from "./ui/ErrorMsg";
 
 const UsersList: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -14,8 +17,18 @@ const UsersList: React.FC = () => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  if(isLoading) return <h1>Loading...</h1>
-  if(error) return <h1>{error.message}</h1>
+  if (isLoading) {
+    return <Loader className="h-10 w-full" time={6} />;
+  }
+
+  if (error) {
+    return (
+        <div className="flex items-center justify-center h-screen flex-col gap-8">
+        <ErrorCard />
+        <ErrorMsg message={error.message} />
+      </div>
+    );
+  }
 
   return (
     <div>

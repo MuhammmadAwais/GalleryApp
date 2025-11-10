@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='mx-auto container'>
       <UsersList />
-      <Panel><></></Panel>
+
 
       
     </div>
