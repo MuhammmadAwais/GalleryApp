@@ -30,9 +30,16 @@ const UsersList: React.FC = () => {
     );
   }
 
+const RenderedUsers = data.map((user) => (
+  <div key={user.id} className="mb-2 rounded border">
+    <div className="flex p-2 justify-between items-center cursor-pointer">
+      {user.name}
+    </div>
+  </div>
+));
   return (
     <div>
-      <h1>{data.length}</h1>
+      <div>{RenderedUsers}</div>
     </div>
   );
 };
