@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './Components/Button';
+import Button from './Components/ui/Button';
 import Panel from './Components/Panel';
 import UsersList from './Components/UsersList';
 

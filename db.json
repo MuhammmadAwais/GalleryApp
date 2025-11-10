@@ -1,9 +1,14 @@
 {
-    "users": [{
-        "id": 1,
-        "name": "Faiza Khalid"
-        }],
-    "albums": [],
-    "photos": []
-
+  "users": [
+    {
+      "id": "1",
+      "name": "Muhammad Awais Latif "
+    },
+    {
+      "id": "2",
+      "name": "Faiza Awais"
+    }
+  ],
+  "albums": [],
+  "photos": []
 }

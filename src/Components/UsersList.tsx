@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../store/Thunks/fetchUsers";
+import { fetchUsers , addUser } from "../store";
 import type { RootState, AppDispatch } from "../store";
 import Loader from "./ui/Loader";
 import ErrorCard from "./ui/ErrorCard";
 import ErrorMsg from "./ui/ErrorMsg";
+import Button from "./ui/Button";
 
 const UsersList: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -16,6 +17,11 @@ const UsersList: React.FC = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+
+
+  const HandleUserAdd = () => {
+    dispatch(addUser());
+  }
 
   if (isLoading) {
     return <Loader className="h-10 w-full" time={6} />;
@@ -39,6 +45,10 @@ const RenderedUsers = data.map((user) => (
 ));
   return (
     <div>
+      <div className="flex grow justify-between m-3">
+        <h1 className="m-2 text-xl">Users</h1>
+        <Button onClick={HandleUserAdd}>+ Add User</Button>
+      </div>
       <div>{RenderedUsers}</div>
     </div>
   );

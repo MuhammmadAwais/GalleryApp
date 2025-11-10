@@ -12,3 +12,4 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export * from "./Thunks/fetchUsers";
+export * from "./Thunks/addUser";
