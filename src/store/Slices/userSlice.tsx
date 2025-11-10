@@ -3,7 +3,7 @@ import { fetchUsers } from "../Thunks/fetchUsers";
 import type { SerializedError } from "../../Types/errorTypes";
 
 
-interface UserState {
+ export interface UserState {
   data: any[]; 
   isLoading: boolean;
   error: SerializedError | null; 
