@@ -26,27 +26,26 @@ const UsersList: React.FC = () => {
     runCreateUser();
   };
 
-
+  let Content;
   if (isLoadingUsers) {
-    return <Loader className="h-10 w-full" time={6} />;
-  }
-
-  if (fetchUsersError) {
-    return (
+    Content = <Loader className="h-10 w-full" time={6} />;
+  } else if (fetchUsersError) {
+    Content = (
       <div className="flex items-center justify-center h-screen flex-col gap-8">
         <ErrorCard />
         <ErrorMsg message={fetchUsersError.message} />
       </div>
     );
+  } else {
+    Content = data.map((user) => (
+      <div key={user.id} className="mb-2 rounded border">
+        <div className="flex p-2 justify-between items-center cursor-pointer">
+          {user.name}
+        </div>
+      </div>
+    ));
   }
 
-  const RenderedUsers = data.map((user) => (
-    <div key={user.id} className="mb-2 rounded border">
-      <div className="flex p-2 justify-between items-center cursor-pointer">
-        {user.name}
-      </div>
-    </div>
-  ));
 
   return (
     <div>
@@ -65,7 +64,7 @@ const UsersList: React.FC = () => {
           )}
         </div>
       </div>
-      <div>{RenderedUsers}</div>
+      <div>{Content}</div>
     </div>
   );
 };
