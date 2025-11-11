@@ -8,12 +8,12 @@ const addUser = createAsyncThunk("users/add", async () => {
   });
 
   // Simulate network delay (ONLY FOR DEV)
-  // await pause(1000);
+  await pause(1000);
 
   return response.data;
 });
 
 // Simulate network delay (ONLY FOR DEV)
-// const pause = (duration: number) => new Promise((resolve) => setTimeout(resolve, duration));
+const pause = (duration: number) => new Promise((resolve) => setTimeout(resolve, duration));
 
 export { addUser }

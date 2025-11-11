@@ -7,6 +7,7 @@ import ErrorCard from "./ui/ErrorCard";
 import ErrorMsg from "./ui/ErrorMsg";
 import Button from "./ui/Button";
 import { useThunk } from "./hooks/useThunk";
+import Spinner from "./ui/Spinner";
 
 const UsersList: React.FC = () => {
 
@@ -52,10 +53,14 @@ const UsersList: React.FC = () => {
       <div className="flex grow justify-between m-3 items-center">
         <h1 className="m-2 text-xl">Users</h1>
         <div className="flex items-center gap-2">
+          {isCreatingUser ? (
+            <Spinner />
+          ) : (
+            <Button onClick={HandleUserAdd} disabled={isCreatingUser}>
+              {"+ Add User"}
+            </Button>
+          )}
 
-          <Button onClick={HandleUserAdd} disabled={isCreatingUser}>
-            {isCreatingUser ? <Loader time={6} /> : "+ Add User"}
-          </Button>
           {createUserError && <ErrorMsg message={createUserError.message} />}
         </div>
       </div>
