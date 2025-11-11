@@ -60,8 +60,9 @@ const UsersList: React.FC = () => {
               {"+ Add User"}
             </Button>
           )}
-
-          {createUserError && <ErrorMsg message={createUserError.message} />}
+          {createUserError && !isCreatingUser&& (
+            <ErrorMsg message={createUserError.message} key={Date.now()} />
+          )}
         </div>
       </div>
       <div>{RenderedUsers}</div>
