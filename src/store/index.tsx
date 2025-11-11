@@ -13,3 +13,4 @@ export type AppDispatch = typeof store.dispatch;
 
 export * from "./Thunks/fetchUsers";
 export * from "./Thunks/addUser";
+export * from "./Thunks/removeUser";

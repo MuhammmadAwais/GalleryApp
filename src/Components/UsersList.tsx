@@ -8,6 +8,7 @@ import ErrorMsg from "./ui/ErrorMsg";
 import Button from "./ui/Button";
 import { useThunk } from "./hooks/useThunk";
 import Spinner from "./ui/Spinner";
+import UsersListItems from "./UsersListItems";
 
 const UsersList: React.FC = () => {
 
@@ -37,13 +38,11 @@ const UsersList: React.FC = () => {
       </div>
     );
   } else {
-    Content = data.map((user) => (
-      <div key={user.id} className="mb-2 rounded border">
-        <div className="flex p-2 justify-between items-center cursor-pointer">
-          {user.name}
-        </div>
-      </div>
-    ));
+Content = data.map((user) => (
+  <UsersListItems key={user.id} user={user} />
+));
+
+
   }
 
 
