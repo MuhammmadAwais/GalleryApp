@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+
 @-webkit-keyframes shimmer {
   0% {
     background-position: -200px 0;
